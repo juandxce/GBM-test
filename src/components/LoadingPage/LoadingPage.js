@@ -4,16 +4,28 @@ import { connect } from "react-redux";
 import { fetchChartsData } from "../../store";
 
 class LoadingPage extends Component {
-    
+    constructor(){
+        super();
+        this.state = {cargando:true};
+
+    }
     componentDidMount(){
+        console.log("cdd")
         setTimeout(() => {
-            this.cargando=false;
+            this.setState({cargando: false})
         }, 5000);
     }
 
     render() {
         return (
             <div>
+            { (this.state.cargando&&this.props.tooltipsData)&&(
+                <div id="loading-mask">
+                    <p>Loading...</p>
+                    <div className="lds-dual-ring"></div>
+                    <p>{this.props.tooltipsData[Math.floor(Math.random() * (this.props.tooltipsData.length))]}</p>
+                </div>
+                ) }
                 <Carousel className="carousel__fails" statusFormatter={ ( i, t ) => `${i} de ${t}`}
                 infiniteLoop={ true }
                 showThumbs={ false } >
@@ -43,8 +55,7 @@ class LoadingPage extends Component {
 LoadingPage.serverFetch = fetchChartsData; // static declaration of data requirements
 const mapStateToProps = state => (
     {
-        drawerOpen: state.drawerOpen,
-        tooltipsData: state.tooltipsData,
+        tooltipsData: state.chartsData.tooltips,
     }
 );
 

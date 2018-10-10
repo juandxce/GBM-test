@@ -13,7 +13,7 @@ const store = createStore( window.REDUX_DATA );
 
 const jsx = (
     <ReduxProvider store={ store }>
-        <Router onUpdate={ ()=>{ console.log("UPDATING ROUTE") }  } >
+        <Router>
             <Layout />
         </Router>
     </ReduxProvider>
