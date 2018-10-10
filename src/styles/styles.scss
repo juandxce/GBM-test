@@ -23,6 +23,10 @@ body{
     background: #fff;
     z-index: 2;
 }
+
+.text-wrap{
+    white-space: pre;
+}
 .carousel__fails{
     max-width: 800px;
     margin: 50px auto;
