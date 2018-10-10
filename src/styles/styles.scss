@@ -1,0 +1,19 @@
+@import "./variables.scss";
+body{
+    margin: 0;
+    background: #eee;
+}
+#chart-ipc{
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.carousel__fails{
+    max-width: 800px;
+    margin: 50px auto;
+    .legend{
+        font-family: arial;
+    }
+}
+
